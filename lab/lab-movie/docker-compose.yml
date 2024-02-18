@@ -1,0 +1,10 @@
+services:
+  mysql-poc:
+    container_name: mysql-poc
+    image: mysql:8.0.34
+    restart: always
+    environment:
+      - MYSQL_DATABASE=local
+      - MYSQL_ROOT_PASSWORD=1234
+    ports:
+      - '3306:3306'
