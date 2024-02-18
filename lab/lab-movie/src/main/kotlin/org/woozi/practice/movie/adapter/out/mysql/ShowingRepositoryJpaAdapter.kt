@@ -13,6 +13,6 @@ class ShowingRepositoryJpaAdapter(
     private val showingRepositoryJpaRepository: ShowingRepositoryJpaRepository
 ) : ShowingRepository {
     override fun find(showingId: String): Showing = showingRepositoryJpaRepository.findByIdOrNull(showingId.toLong())
-        ?.let { ShowingMapper.toDomain(it) }
+        ?.let(ShowingMapper::toDomain)
         ?: throw EntityNotFoundException()
 }
