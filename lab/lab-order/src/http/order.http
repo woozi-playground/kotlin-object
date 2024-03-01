@@ -1,0 +1,38 @@
+### 메뉴 정보 불러오기
+GET http://localhost:8080/shops/1/menu-board
+
+### 주문하기
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "shopId": 1,
+  "orderLineItems": [
+    {
+      "menuId": 1,
+      "name": "치킨",
+      "count": 1,
+      "groups": [
+        {
+          "name": "기본",
+          "options": [
+            {
+              "name": "300g",
+              "price": 0
+            }
+          ]
+        },
+        {
+          "name": "고기 선택",
+          "options": [
+            {
+              "name": "삼겹",
+              "price": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

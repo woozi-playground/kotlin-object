@@ -5,11 +5,11 @@ import org.woozi.practice.laborder.order.application.service.OrderValidateServic
 class OrderRequest(
     val userId: Long,
     val shopId: Long,
-    val orderLineItems: List<OrderLineItem>
+    val orderLineItems: List<OrderLineItemRequest>
 ) {
     fun validate(orderValidateService: OrderValidateService) {
         orderValidateService.validate(this)
     }
 
-    fun menuIds(): List<Long> = orderLineItems.map(OrderLineItem::menuId)
+    fun menuIds(): List<Long> = orderLineItems.map(OrderLineItemRequest::menuId)
 }

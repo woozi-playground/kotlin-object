@@ -8,6 +8,6 @@ class MenuClient(
     private val httpClient: HttpClient = HttpClient.newHttpClient()
 ) {
     fun getByIds(menuIds: List<Long>): List<MenuResponse> {
-        TODO("Not yet implemented")
+        return listOf()
     }
 }

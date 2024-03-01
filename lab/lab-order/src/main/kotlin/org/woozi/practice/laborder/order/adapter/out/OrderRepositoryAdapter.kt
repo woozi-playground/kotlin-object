@@ -8,9 +8,9 @@ import org.woozi.practice.laborder.order.adapter.out.persistence.OrderOptionEnti
 import org.woozi.practice.laborder.order.adapter.out.persistence.OrderOptionGroupEntity
 import org.woozi.practice.laborder.order.adapter.out.persistence.OrderStatus
 import org.woozi.practice.laborder.order.application.port.out.OrderRepository
-import org.woozi.practice.laborder.order.domain.OrderLineItem
-import org.woozi.practice.laborder.order.domain.OrderOption
-import org.woozi.practice.laborder.order.domain.OrderOptionGroup
+import org.woozi.practice.laborder.order.domain.OrderLineItemRequest
+import org.woozi.practice.laborder.order.domain.OrderOptionGroupRequest
+import org.woozi.practice.laborder.order.domain.OrderOptionRequest
 import org.woozi.practice.laborder.order.domain.OrderRequest
 import java.time.ZonedDateTime
 
@@ -32,7 +32,7 @@ class OrderRepositoryAdapter(
         orderStatus = OrderStatus.ORDERED
     )
 
-    private fun orderLineItemEntities(orderLineItems: List<OrderLineItem>): MutableList<OrderLineItemEntity> =
+    private fun orderLineItemEntities(orderLineItems: List<OrderLineItemRequest>): MutableList<OrderLineItemEntity> =
         orderLineItems.map {
             OrderLineItemEntity(
                 menuId = it.menuId,
@@ -42,11 +42,11 @@ class OrderRepositoryAdapter(
             )
         }.toMutableList()
 
-    private fun orderOptionGroupEntities(groups: List<OrderOptionGroup>): MutableList<OrderOptionGroupEntity> =
+    private fun orderOptionGroupEntities(groups: List<OrderOptionGroupRequest>): MutableList<OrderOptionGroupEntity> =
         groups.map {
             OrderOptionGroupEntity(name = it.name, orderOptions = orderOptionEntities(it.orderOptions))
         }.toMutableList()
 
-    private fun orderOptionEntities(orderOptions: List<OrderOption>): MutableList<OrderOptionEntity> =
+    private fun orderOptionEntities(orderOptions: List<OrderOptionRequest>): MutableList<OrderOptionEntity> =
         orderOptions.map { OrderOptionEntity(name = it.name, price = it.price.amount) }.toMutableList()
 }
