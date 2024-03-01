@@ -18,25 +18,25 @@ import java.time.LocalDateTime
 class OrderEntity(
 
     @Column(name = "USER_ID")
-    private var userId: Long,
+    var userId: Long,
 
     @Column(name = "SHOP_ID")
-    private var shopId: Long,
+    var shopId: Long,
 
     @OneToMany(cascade = [CascadeType.ALL])
     @JoinColumn(name = "ORDER_ID")
-    private val orderLineItems: MutableList<OrderLineItemEntity> = mutableListOf(),
+    val orderLineItems: MutableList<OrderLineItemEntity> = mutableListOf(),
 
     @Column(name = "ORDERED_TIME")
-    private var orderedTime: LocalDateTime,
+    var orderedTime: LocalDateTime,
 
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
-    private var orderStatus: OrderStatus,
+    var orderStatus: OrderStatus,
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ORDER_ID")
-    private var id: Long? = null,
+    var id: Long? = null,
 ) {
 }
