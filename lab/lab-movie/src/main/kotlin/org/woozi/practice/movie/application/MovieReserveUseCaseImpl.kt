@@ -24,3 +24,13 @@ class MovieReserveUseCaseImpl(
         reservation.reserved(domainEventPublisher::publishEvent)
     }
 }
+// 데이터베이스 -> 데이터 지향 / 트랜잭션 스크립트
+// <-->
+// java -> 객체지향
+// Http -> Domain <- DB
+// 패러다임 의존성
+// DB -> 데이터 지향 / 트랜잭션 스크립트
+// Domain -> 객체지향
+// 데이터 지향 -> 객체지향 <- 이벤트 드리븐
+// 데이터 지향 ==> 객체지향을 할 수 있는 모델링 + 매퍼를 만든다
+
