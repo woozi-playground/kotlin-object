@@ -21,4 +21,12 @@ class DeliveryRepositoryAdapter(
             deliveryEntityRepository.save(it)
         }
     }
+
+    override fun findByOrderId(orderId: Long): Delivery =
+        deliveryEntityRepository.findByOrderId(orderId).let {
+            Delivery(
+                orderId = it.orderId,
+                deliveryStatus = it.deliveryStatus
+            )
+        }
 }

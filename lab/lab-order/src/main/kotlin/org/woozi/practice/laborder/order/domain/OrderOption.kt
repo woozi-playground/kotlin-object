@@ -4,7 +4,7 @@ import org.woozi.practice.laborder.common.Money
 import org.woozi.practice.laborder.shop.domain.Option
 
 data class OrderOption(
-    private val name: String,
+    val name: String,
     val price: Money
 ) {
     fun convertToOption(): Option =

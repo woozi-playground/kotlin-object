@@ -12,8 +12,8 @@ class OrderRequestUseCase(
 ) {
 
     fun requestOrder(orderRequestCommand: OrderRequestCommand) {
-        val order = orderRequestCommand.toOrder()
-        order.validate(orderValidateService)
-        orderRepository.save(order)
+        val orderRequest = orderRequestCommand.toOrderRequest()
+        orderRequest.validate(orderValidateService)
+        orderRepository.save(orderRequest)
     }
 }

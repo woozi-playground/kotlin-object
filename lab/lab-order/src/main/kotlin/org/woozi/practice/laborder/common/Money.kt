@@ -3,7 +3,7 @@ package org.woozi.practice.laborder.common
 import java.util.function.Function
 
 data class Money(
-    private val amount: Long
+    val amount: Long
 ) {
 
     fun times(rate: Int): Money =

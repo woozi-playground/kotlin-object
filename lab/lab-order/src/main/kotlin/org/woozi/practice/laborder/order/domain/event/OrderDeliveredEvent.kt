@@ -3,13 +3,10 @@ package org.woozi.practice.laborder.order.domain.event
 import org.woozi.practice.laborder.common.Money
 import org.woozi.practice.laborder.order.domain.Order
 
-class OrderDeliveredEvent(private val order: Order) {
-    val orderId: Long
-        get() = order.id
-
-    val shopId: Long
-        get() = order.shopId
-
+class OrderDeliveredEvent(
+    val orderId: Long,
+    val shopId: Long,
     val totalPrice: Money
-        get() = order.calculateTotalPrice()
+) {
+    constructor(order: Order) : this(order.id!!, order.shopId, order.calculateTotalPrice())
 }

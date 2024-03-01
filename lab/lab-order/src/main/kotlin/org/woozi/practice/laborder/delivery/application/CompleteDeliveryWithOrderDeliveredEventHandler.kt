@@ -12,7 +12,7 @@ class CompleteDeliveryWithOrderDeliveredEventHandler(private val deliveryReposit
     @Async
     @EventListener
     fun handle(event: OrderDeliveredEvent) {
-        val delivery: Delivery = deliveryRepository.findByOrderId(event.orderId)
+        val delivery = deliveryRepository.findByOrderId(event.orderId)
         deliveryRepository.save(delivery.complete())
     }
 }

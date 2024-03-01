@@ -2,12 +2,12 @@ package org.woozi.practice.laborder.shop.domain
 
 import org.woozi.practice.laborder.common.Money
 
-class MenuBoard(
-    private val shopId: Long,
-    private val shopName: String,
-    private val open: Boolean,
-    private val minOrderAmount: Money,
-    private val menuItems: List<MenuItem>,
+data class MenuBoard(
+    val shopId: Long,
+    val shopName: String,
+    val open: Boolean,
+    val minOrderAmount: Money,
+    val menuItems: List<MenuItem>,
 ) {
     constructor(shop: Shop, menuItems: List<Menu>) : this(
         shop.id,
@@ -17,17 +17,12 @@ class MenuBoard(
         menuItems.map(::MenuItem)
     )
 
-    class MenuItem(menu: Menu) {
-        private val menuId: Long
-        private val menuName: String
-        private val menuBasePrice: Money
-        private val menuDescription: String
-
-        init {
-            this.menuId = menu.id
-            this.menuName = menu.name
-            this.menuBasePrice = menu.getBasePrice()
-            this.menuDescription = menu.description
-        }
+    data class MenuItem(
+        val menuId: Long,
+        val menuName: String,
+        val menuBasePrice: Money,
+        val menuDescription: String
+    ) {
+        constructor(menu: Menu) : this(menu.id, menu.name, menu.getBasePrice(), menu.description)
     }
 }
