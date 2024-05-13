@@ -1,5 +1,4 @@
 data class Customer(
+    private val id: String,
     private val name: String,
-    private val id: String
-) {
-}
+)
