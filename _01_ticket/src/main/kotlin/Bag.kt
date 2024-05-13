@@ -8,15 +8,13 @@ data class Bag(
         if (hasInvitation()) {
             setTicket(ticket)
             return 0L
-        } else {
-            minusAmount(ticket.fee)
-            setTicket(ticket)
-            return ticket.fee
         }
+        minusAmount(ticket.fee)
+        setTicket(ticket)
+        return ticket.fee
     }
 
-    private fun hasInvitation(): Boolean =
-        invitation != null
+    private fun hasInvitation(): Boolean = invitation != null
 
     private fun minusAmount(amount: Long): Bag =
         Bag(this.amount - amount, invitation, ticket)
