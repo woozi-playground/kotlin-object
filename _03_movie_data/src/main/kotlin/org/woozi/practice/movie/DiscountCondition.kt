@@ -13,8 +13,7 @@ class DiscountCondition(
 
     fun isDiscountable(dayOfWeek: DayOfWeek, time: LocalTime?): Boolean {
         require(type === DiscountConditionType.PERIOD)
-        return this.dayOfWeek == dayOfWeek && (startTime!!.compareTo(time) <= 0
-            ) && (endTime!!.compareTo(time) >= 0)
+        return this.dayOfWeek == dayOfWeek && (startTime!! <= time) && (endTime!! >= time)
     }
 
     fun isDiscountable(sequence: Int): Boolean {

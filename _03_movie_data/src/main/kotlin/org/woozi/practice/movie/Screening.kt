@@ -9,18 +9,19 @@ class Screening(
 ) {
     fun calculateFee(audienceCount: Int): Money {
         when (movie.movieType) {
-            MovieType.AMOUNT_DISCOUNT -> if (movie.isDiscountable(whenScreened, sequence)) {
-                return movie.calculateAmountDiscountedFee().times(audienceCount)
+            MovieType.AMOUNT_DISCOUNT -> {
+                if (movie.isDiscountable(whenScreened, sequence)) {
+                    return movie.calculateAmountDiscountedFee().times(audienceCount)
+                }
             }
-
             MovieType.PERCENT_DISCOUNT -> {
                 if (movie.isDiscountable(whenScreened, sequence)) {
                     return movie.calculatePercentDiscountedFee().times(audienceCount)
                 }
+            }
+            MovieType.NONE_DISCOUNT -> {
                 return movie.calculateNoneDiscountedFee().times(audienceCount)
             }
-
-            MovieType.NONE_DISCOUNT -> return movie.calculateNoneDiscountedFee().times(audienceCount)
         }
         return movie.calculateNoneDiscountedFee().times(audienceCount)
     }
