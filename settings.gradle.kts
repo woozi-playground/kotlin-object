@@ -5,7 +5,7 @@ rootProject.name = "kotlin-object"
 include(
     "_01_ticket",
     "_02_movie",
-    "_03_movie_data",
+    "_04_movie_data",
     "lab",
     "lab:lab-movie",
     "lab:lab-order"
