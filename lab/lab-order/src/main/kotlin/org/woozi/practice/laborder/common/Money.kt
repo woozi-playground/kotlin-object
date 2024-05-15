@@ -21,8 +21,7 @@ data class Money(
 
     companion object {
         val ZERO: Money = Money(0)
-
         fun <T> sum(bags: Collection<T>, monetary: Function<T, Money>): Money =
-            bags.stream().map(monetary::apply).reduce(ZERO, Money::plus)
+            bags.map(monetary::apply).fold(ZERO, Money::plus)
     }
 }
