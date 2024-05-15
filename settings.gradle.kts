@@ -8,7 +8,7 @@ include(
     "_04_movie_data",
     "_05_movie",
     "_05_movie_refactoring",
-    "_06_cqrs",
+    "_06_command_query",
     "lab",
     "lab:lab-movie",
     "lab:lab-order"
