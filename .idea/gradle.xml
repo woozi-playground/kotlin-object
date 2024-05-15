@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/_04_movie_data" />
             <option value="$PROJECT_DIR$/_05_movie" />
             <option value="$PROJECT_DIR$/_05_movie_refactoring" />
+            <option value="$PROJECT_DIR$/_06_cqrs" />
             <option value="$PROJECT_DIR$/lab" />
             <option value="$PROJECT_DIR$/lab/lab-movie" />
             <option value="$PROJECT_DIR$/lab/lab-order" />
