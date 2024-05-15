@@ -10,6 +10,7 @@ include(
     "_05_movie_refactoring",
     "_06_command_query",
     "_06_refactoring",
+    "_10_call",
     "lab",
     "lab:lab-movie",
     "lab:lab-order"
