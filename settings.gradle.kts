@@ -12,6 +12,7 @@ include(
     "_06_refactoring",
     "_10_call",
     "_11_call",
+    "_12_lecture",
     "lab",
     "lab:lab-movie",
     "lab:lab-order"
